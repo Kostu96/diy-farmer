@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cudykageemtfp"]
+[gd_scene load_steps=7 format=3 uid="uid://cudykageemtfp"]
 
 [ext_resource type="PackedScene" uid="uid://dlol58oyqui7m" path="res://player/player.tscn" id="1_0wuls"]
 
@@ -6,6 +6,20 @@
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7u88h"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uftqq"]
+
+[sub_resource type="Sky" id="Sky_gnojk"]
+sky_material = SubResource("PhysicalSkyMaterial_uftqq")
+
+[sub_resource type="Environment" id="Environment_6bouu"]
+background_mode = 2
+sky = SubResource("Sky_gnojk")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 1
+fog_enabled = true
+fog_sky_affect = 0.3
 
 [node name="main" type="Node3D"]
 
@@ -18,7 +32,11 @@ shape = SubResource("BoxShape3D_0o8a5")
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
 mesh = SubResource("BoxMesh_7u88h")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.999997, 0.000557434, 0.00240955, -0.00183718, 0.819674, 0.572828, -0.00165572, -0.572831, 0.819672, 0, 10, 0)
-
 [node name="Player" parent="." instance=ExtResource("1_0wuls")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999997, 0.000557442, 0.00240954, -0.00183718, 0.819674, 0.572828, -0.00165572, -0.572831, 0.819672, 0, 10, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6bouu")
