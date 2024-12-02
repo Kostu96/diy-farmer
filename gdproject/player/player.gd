@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-const SPEED: float = 5.0
+const SPEED: float = 4.0
 const JUMP_VELOCITY: float = 3.5
-const CAMERA_SENSIVITY: float = 3.5
+const CAMERA_SENSIVITY: float = 3.0
 
 var look_dir: Vector2
 @onready var camera: Camera3D = $Camera3D

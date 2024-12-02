@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cudykageemtfp"]
+[gd_scene load_steps=8 format=3 uid="uid://cudykageemtfp"]
 
 [ext_resource type="PackedScene" uid="uid://dlol58oyqui7m" path="res://player/player.tscn" id="1_0wuls"]
+[ext_resource type="ArrayMesh" uid="uid://c0ecscdw0ee52" path="res://spanner.obj" id="2_p7h6o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0o8a5"]
 size = Vector3(50, 1, 50)
@@ -40,3 +41,7 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6bouu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0)
+mesh = ExtResource("2_p7h6o")
