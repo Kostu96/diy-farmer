@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdr12c8twgl1k"
-path="res://.godot/imported/spanner.blend-56adb3d6c08fb44a988d772a3beb9f81.scn"
+uid="uid://r5kqnoeupk75"
+path="res://.godot/imported/bolt.blend-7bd8337048301817dd977d6258282eaf.scn"
 
 [deps]
 
-source_file="res://tools/spanner.blend"
-dest_files=["res://.godot/imported/spanner.blend-56adb3d6c08fb44a988d772a3beb9f81.scn"]
+source_file="res://tools/bolt.blend"
+dest_files=["res://.godot/imported/bolt.blend-7bd8337048301817dd977d6258282eaf.scn"]
 
 [params]
 
@@ -33,14 +33,14 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"spanner_mesh": {
+"bolt_mesh": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://tools/spanner_mesh.tres"
+"save_to_file/path": "res://tools/bolt_mesh.tres"
 }
 }
 }
