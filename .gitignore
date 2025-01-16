@@ -5,8 +5,6 @@ build/
 # Godot 4+ specific ignores
 .godot/
 /android/
-# Godot-Jolt temp files
-~godot-jolt*
 
 # Blender backup files
 *.blend?
