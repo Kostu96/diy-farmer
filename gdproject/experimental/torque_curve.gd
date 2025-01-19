@@ -1,17 +1,32 @@
 extends Control
 
-var torqueValues : Array = [Vector2(600, 69), Vector2(650, 71), Vector2(700, 73),
-	Vector2(750, 74.5), Vector2(800, 76), Vector2(850, 78), Vector2(900, 79.5), Vector2(950, 81),
-	Vector2(1000, 82), Vector2(1050, 83.5), Vector2(1100, 85), Vector2(1150, 87), Vector2(1200, 88),
-	Vector2(1250, 88), Vector2(1300, 87.5), Vector2(1350, 87), Vector2(1400, 86.5),
-	Vector2(1450, 86), Vector2(1500, 85.5), Vector2(1550, 83.5), Vector2(1600, 81.5),
-	Vector2(1650, 80), Vector2(1700, 78), Vector2(1750, 76), Vector2(1800, 74), Vector2(1850, 72),
-	Vector2(1900, 69.5), Vector2(1950, 68), Vector2(2000, 66)]
+const torque_curve : Curve = preload("res://experimental/torque_curve.tres")
+const braking_curve : Curve = preload("res://experimental/engine_braking_curve.tres")
+
+
+func _getTorqueAtPartThrottle(rpm : float, throttle : float) -> float:
+	var min : float = braking_curve.sample_baked(rpm)
+	var rpm_percent : float = rpm / (2200 - 400) #- 0.5 * rpm_percent
+	return min + (torque_curve.sample_baked(rpm) - min) * throttle * (1 - 0.5 * pow(rpm_percent, 2))
+
 
 func _ready() -> void:
-	var torquePlot : PlotItem = $Graph2D.add_plot_item("Torque", Color.GREEN, 1.0)
-	var powerPlot : PlotItem = $Graph2D.add_plot_item("Power", Color.BLUE, 1.0)
+	var torquePlot100 : PlotItem = $Graph2D.add_plot_item("Torque 100%", Color.GREEN, 2)
+	var torquePlot75 : PlotItem = $Graph2D.add_plot_item("Torque 75%", Color.GREEN, 2)
+	var torquePlot50 : PlotItem = $Graph2D.add_plot_item("Torque 50%", Color.GREEN, 2)
+	var torquePlot25 : PlotItem = $Graph2D.add_plot_item("Torque 25%", Color.GREEN, 2)
+	var torquePlotBraking : PlotItem = $Graph2D.add_plot_item("Torque 0%", Color.BLUE, 2)
+	var powerPlot : PlotItem = $Graph2D.add_plot_item("Power", Color.RED, 2)
 	
-	for p in torqueValues:
-		torquePlot.add_point(p)
-		powerPlot.add_point(Vector2(p.x, (p.y * p.x) / 5252))
+	var zeroLine : PlotItem = $Graph2D.add_plot_item("ZERO", Color.WHITE, 1)
+	zeroLine.add_point(Vector2(400, 0))
+	zeroLine.add_point(Vector2(2200, 0))
+	
+	for rpm in range(400, 2200, 50):
+		var torque100 : float = torque_curve.sample_baked(rpm)
+		torquePlot100.add_point(Vector2(rpm, torque100))
+		torquePlot75.add_point(Vector2(rpm, _getTorqueAtPartThrottle(rpm, 0.75)))
+		torquePlot50.add_point(Vector2(rpm, _getTorqueAtPartThrottle(rpm, 0.50)))
+		torquePlot25.add_point(Vector2(rpm, _getTorqueAtPartThrottle(rpm, 0.25)))
+		torquePlotBraking.add_point(Vector2(rpm, _getTorqueAtPartThrottle(rpm, 0)))
+		powerPlot.add_point(Vector2(rpm, (torque100 * rpm) / 5252))
