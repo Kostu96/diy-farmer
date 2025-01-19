@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dq0u177seusyv"
-path="res://.godot/imported/bump_square.blend-d2d2eba909c45c3558df1f4a2e44abd3.scn"
+uid="uid://byb4v3pl2wttt"
+path="res://.godot/imported/ground.blend-5d4a157135e1f14296e7265532b68a38.scn"
 
 [deps]
 
-source_file="res://experimental/environment/bump_square.blend"
-dest_files=["res://.godot/imported/bump_square.blend-d2d2eba909c45c3558df1f4a2e44abd3.scn"]
+source_file="res://experimental/environment/blocks/ground.blend"
+dest_files=["res://.godot/imported/ground.blend-5d4a157135e1f14296e7265532b68a38.scn"]
 
 [params]
 

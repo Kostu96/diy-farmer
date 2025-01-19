@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cknrv68io4e0u"
-path="res://.godot/imported/bump_triangle.blend-ddb25cd4a17b17f127fb27cb92983ed4.scn"
+uid="uid://ddwov7xcyqqhf"
+path="res://.godot/imported/bump_circle.blend-071a4128726ea922a07c2ade6298bc20.scn"
 
 [deps]
 
-source_file="res://experimental/environment/bump_triangle.blend"
-dest_files=["res://.godot/imported/bump_triangle.blend-ddb25cd4a17b17f127fb27cb92983ed4.scn"]
+source_file="res://experimental/environment/blocks/bump_circle.blend"
+dest_files=["res://.godot/imported/bump_circle.blend-071a4128726ea922a07c2ade6298bc20.scn"]
 
 [params]
 

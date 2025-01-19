@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://5vaifx631us7"]
+[gd_scene load_steps=4 format=3 uid="uid://5vaifx631us7"]
+
+[ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://experimental/environment/blocks/bump_square.blend" id="1_y0lba"]
+[ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://experimental/environment/blocks/ground.blend" id="2_gq76n"]
+[ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://experimental/environment/blocks/ramp.blend" id="3_qgx33"]
 
 [node name="Test2" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="ground" parent="Environment" instance=ExtResource("2_gq76n")]
+
+[node name="ramp2" parent="Environment" instance=ExtResource("3_qgx33")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -6)
+
+[node name="ramp" parent="Environment" instance=ExtResource("3_qgx33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6)
+
+[node name="bump_square" parent="Environment" instance=ExtResource("1_y0lba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[editable path="Environment/ground"]

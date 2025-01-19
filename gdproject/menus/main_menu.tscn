@@ -44,6 +44,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Test1"
 
+[node name="Test2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Test2"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Test1" to="." method="_on_test_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Test2" to="." method="_on_test_2_pressed"]
