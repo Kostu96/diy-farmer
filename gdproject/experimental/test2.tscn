@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5vaifx631us7"]
+[gd_scene load_steps=5 format=3 uid="uid://5vaifx631us7"]
 
 [ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://experimental/environment/blocks/bump_square.blend" id="1_y0lba"]
 [ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://experimental/environment/blocks/ground.blend" id="2_gq76n"]
 [ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://experimental/environment/blocks/ramp.blend" id="3_qgx33"]
+[ext_resource type="PackedScene" uid="uid://cgjhvgjrjb2tl" path="res://experimental/tractor.blend" id="4_n506h"]
 
 [node name="Test2" type="Node3D"]
 
@@ -19,4 +20,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6)
 [node name="bump_square" parent="Environment" instance=ExtResource("1_y0lba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
+[node name="tractor" parent="." instance=ExtResource("4_n506h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30063, 1.19209e-07, 2.69645)
+
+[node name="CollisionShape3D" parent="tractor/WheelFL_col" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000211716, 0.00331104, -0.000119686)
+
+[node name="CollisionShape3D" parent="tractor/WheelFR_col" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.30617e-05, 0.00212467, -0.000553846)
+
 [editable path="Environment/ground"]
+[editable path="Environment/ramp2"]
+[editable path="Environment/bump_square"]
+[editable path="tractor"]

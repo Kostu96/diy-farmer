@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cgjhvgjrjb2tl"
-path="res://.godot/imported/tractor.blend-f262397bf81a4834d3e70189e56832f5.scn"
+path="res://.godot/imported/tractor.blend-7bc06efc6f9dbe4dc0b2d46fd21509d7.scn"
 
 [deps]
 
-source_file="res://experimental/environment/tractor.blend"
-dest_files=["res://.godot/imported/tractor.blend-f262397bf81a4834d3e70189e56832f5.scn"]
+source_file="res://experimental/tractor.blend"
+dest_files=["res://.godot/imported/tractor.blend-7bc06efc6f9dbe4dc0b2d46fd21509d7.scn"]
 
 [params]
 
