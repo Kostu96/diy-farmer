@@ -1,13 +1,17 @@
 extends Control
 
-var minDelta : float = 1000.0
-var maxDelta : float = 0.0
+const INTERVAL : float = 0.5
+
+var accumulator : float = 0.0
+var frames : int = 0
 
 func _process(delta: float) -> void:
-	if delta < minDelta:
-		minDelta = delta
-	if delta > maxDelta:
-		maxDelta = delta
+	accumulator += delta
+	frames += 1
+	if (accumulator > INTERVAL):
+		var avgDelta: float = int(accumulator * 10000 / frames) * 0.1
+		frames = 0
+		accumulator -= INTERVAL
 		
-	$DeltaLabel.text = str("min: ", int(minDelta * 10000) * 0.1, " cur: ", int(delta * 10000) * 0.1, " max: ", int(maxDelta * 10000) * 0.1)
-	$FSPLabel.text = str("FPS: ", int(Engine.get_frames_per_second()))
+		$DeltaLabel.text = str("delta: ", avgDelta, " ms")
+		$FSPLabel.text = str("FPS: ", int(Engine.get_frames_per_second()))
