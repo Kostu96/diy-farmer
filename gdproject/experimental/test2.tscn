@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://experimental/environment/blocks/bump_square.blend" id="1_y0lba"]
 [ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://experimental/environment/blocks/ground.blend" id="2_gq76n"]
 [ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://experimental/environment/blocks/ramp.blend" id="3_qgx33"]
-[ext_resource type="PackedScene" uid="uid://dcy46po00lf02" path="res://experimental/tractor.tscn" id="4_n506h"]
+[ext_resource type="PackedScene" uid="uid://f1ng1mscg72j" path="res://experimental/te20.blend" id="4_n506h"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_n506h"]
 
@@ -29,9 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6)
 [node name="bump_square" parent="Environment" instance=ExtResource("1_y0lba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
-[node name="tractor" parent="." instance=ExtResource("4_n506h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.939693, -0.241845, 0.241845, 0, 0.707107, 0.707107, -0.34202, -0.664463, 0.664463, 0, 10, 0)
 light_color = Color(0.999999, 0.948231, 0.828422, 1)
@@ -40,6 +37,9 @@ light_indirect_energy = 0.8
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ucvj1")
+
+[node name="te20" parent="." instance=ExtResource("4_n506h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22449, 0.0579186, 2.95829)
 
 [editable path="Environment/ground"]
 [editable path="Environment/ramp2"]
