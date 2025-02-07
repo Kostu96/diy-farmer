@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://der4nxs2byk6h"]
+
+[ext_resource type="Texture2D" uid="uid://cpq0shoavpqs0" path="res://test/textures/ckeckerboard_dark.png" id="1_2obws"]
+[ext_resource type="Script" uid="uid://da62k4rcmruwx" path="res://game/tractor/tractor.gd" id="1_nl5id"]
+[ext_resource type="Texture2D" uid="uid://0ci18jymg8nc" path="res://test/textures/checkerboard_orange.png" id="2_nl5id"]
+[ext_resource type="Script" uid="uid://b8na5vfwekhy5" path="res://game/tractor/wheel.gd" id="3_syphm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y36n6"]
+size = Vector3(0.6, 0.6, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8g03"]
+albedo_texture = ExtResource("1_2obws")
+
+[sub_resource type="BoxMesh" id="BoxMesh_j8tme"]
+material = SubResource("StandardMaterial3D_l8g03")
+size = Vector3(0.6, 0.6, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8tme"]
+albedo_texture = ExtResource("2_nl5id")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3vho3"]
+material = SubResource("StandardMaterial3D_j8tme")
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y36n6"]
+albedo_texture = ExtResource("2_nl5id")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l8g03"]
+material = SubResource("StandardMaterial3D_y36n6")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.1
+
+[node name="Tractor" type="RigidBody3D"]
+script = ExtResource("1_nl5id")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_y36n6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("BoxMesh_j8tme")
+
+[node name="WheelRR" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.6, -0.7)
+target_position = Vector3(0, -0.8, 0)
+script = ExtResource("3_syphm")
+wheel_radius = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRR"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_3vho3")
+
+[node name="WheelRL" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.6, -0.7)
+target_position = Vector3(0, -0.8, 0)
+script = ExtResource("3_syphm")
+wheel_radius = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRL"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_3vho3")
+
+[node name="WheelFR" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.25, 0.8)
+target_position = Vector3(0, -0.7, 0)
+script = ExtResource("3_syphm")
+wheel_radius = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFR"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_l8g03")
+
+[node name="WheelFL" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.25, 0.8)
+target_position = Vector3(0, -0.7, 0)
+script = ExtResource("3_syphm")
+wheel_radius = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFL"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_l8g03")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://5vaifx631us7"]
 
-[ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://experimental/environment/blocks/bump_square.blend" id="1_y0lba"]
-[ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://experimental/environment/blocks/ground.blend" id="2_gq76n"]
-[ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://experimental/environment/blocks/ramp.blend" id="3_qgx33"]
+[ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://test/blocks/bump_square.blend" id="1_y0lba"]
+[ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://test/blocks/ground.blend" id="2_gq76n"]
+[ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://test/blocks/ramp.blend" id="3_qgx33"]
 [ext_resource type="PackedScene" uid="uid://f1ng1mscg72j" path="res://experimental/te20.blend" id="4_n506h"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_n506h"]
