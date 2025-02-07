@@ -5,6 +5,7 @@ build/
 # Godot 4+ specific ignores
 .godot/
 /android/
+~*
 
 # Blender backup files
 *.blend?

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://test/blocks/bump_square.blend" id="1_y0lba"]
 [ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://test/blocks/ground.blend" id="2_gq76n"]
 [ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://test/blocks/ramp.blend" id="3_qgx33"]
-[ext_resource type="PackedScene" uid="uid://f1ng1mscg72j" path="res://experimental/te20.blend" id="4_n506h"]
+[ext_resource type="PackedScene" uid="uid://ddwov7xcyqqhf" path="res://test/blocks/bump_circle.blend" id="4_n506h"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_n506h"]
 
@@ -38,9 +38,19 @@ light_indirect_energy = 0.8
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ucvj1")
 
-[node name="te20" parent="." instance=ExtResource("4_n506h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22449, 0.0579186, 2.95829)
+[node name="bump_circle" parent="." instance=ExtResource("4_n506h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.31343, 1.70869e-07, -2.50793)
+
+[node name="bump_circle2" parent="." instance=ExtResource("4_n506h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.31343, 1.70869e-07, -1.50793)
+
+[node name="bump_circle3" parent="." instance=ExtResource("4_n506h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.31343, 1.70869e-07, -0.507925)
+
+[node name="bump_circle4" parent="." instance=ExtResource("4_n506h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.31343, 1.70869e-07, 0.492075)
 
 [editable path="Environment/ground"]
 [editable path="Environment/ramp2"]
 [editable path="Environment/bump_square"]
+[editable path="bump_circle"]
