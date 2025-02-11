@@ -42,6 +42,7 @@ environment = SubResource("Environment_6bouu")
 [node name="Ground" type="StaticBody3D" parent="Environment"]
 
 [node name="Terrain" type="MeshInstance3D" parent="Environment/Ground"]
+visible = false
 material_override = ExtResource("4_dxrkv")
 mesh = ExtResource("4_4fuuu")
 skeleton = NodePath("../../..")
@@ -50,7 +51,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConcavePolygonShape3D_dxrkv")
 
 [node name="Player" parent="." instance=ExtResource("1_hd13d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 6.51668)
 
 [node name="DebugUI" type="Control" parent="."]
 layout_mode = 3
@@ -100,4 +101,4 @@ text = "FPS: 000"
 horizontal_alignment = 2
 
 [node name="Car" parent="." instance=ExtResource("5_dxrkv")]
-transform = Transform3D(0.994522, 0, -0.104528, 0, 1, 0, 0.104528, 0, 0.994522, 0, 2.5, -8)
+transform = Transform3D(0.994522, 0, -0.104528, 0, 1, 0, 0.104528, 0, 0.994522, 0, 2.5, 2)

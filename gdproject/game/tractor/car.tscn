@@ -1,27 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://e0yu6mev8yom"]
+[gd_scene load_steps=7 format=3 uid="uid://e0yu6mev8yom"]
 
 [ext_resource type="Script" uid="uid://b8na5vfwekhy5" path="res://game/tractor/wheel.gd" id="2_ity5t"]
 [ext_resource type="Material" uid="uid://ilihwcvx687f" path="res://game/tractor/wheel_material.tres" id="3_e3hf7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ity5t"]
-size = Vector3(2, 0.8, 4)
+size = Vector3(2, 0.4, 3.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ity5t"]
+transparency = 1
+albedo_color = Color(0.784314, 0.784314, 0.784314, 0.588235)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kry7n"]
-size = Vector3(2, 0.8, 4)
+size = Vector3(2, 0.4, 3.2)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ity5t"]
-height = 0.2
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.1
 
 [node name="Car" type="RigidBody3D"]
+mass = 1000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ity5t")
+surface_material_override/0 = SubResource("StandardMaterial3D_ity5t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kry7n")
 
 [node name="WheelFL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, -0.2, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, 1.2)
 script = ExtResource("2_ity5t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFL"]
@@ -30,7 +38,7 @@ mesh = SubResource("CylinderMesh_ity5t")
 surface_material_override/0 = ExtResource("3_e3hf7")
 
 [node name="WheelFR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, -0.2, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, 1.2)
 script = ExtResource("2_ity5t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFR"]
@@ -39,7 +47,7 @@ mesh = SubResource("CylinderMesh_ity5t")
 surface_material_override/0 = ExtResource("3_e3hf7")
 
 [node name="WheelRL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, -0.2, -1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, -1.2)
 script = ExtResource("2_ity5t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRL"]
@@ -48,7 +56,7 @@ mesh = SubResource("CylinderMesh_ity5t")
 surface_material_override/0 = ExtResource("3_e3hf7")
 
 [node name="WheelRR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, -0.2, -1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, -1.2)
 script = ExtResource("2_ity5t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRR"]

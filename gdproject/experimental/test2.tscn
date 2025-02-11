@@ -1,9 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://5vaifx631us7"]
+[gd_scene load_steps=15 format=3 uid="uid://5vaifx631us7"]
 
 [ext_resource type="PackedScene" uid="uid://dq0u177seusyv" path="res://test/blocks/bump_square.blend" id="1_y0lba"]
 [ext_resource type="PackedScene" uid="uid://byb4v3pl2wttt" path="res://test/blocks/ground.blend" id="2_gq76n"]
+[ext_resource type="Texture2D" uid="uid://64hw5d2tv7nj" path="res://test/textures/checkerboard_green.png" id="2_ucvj1"]
 [ext_resource type="PackedScene" uid="uid://dni8mu0cir5u0" path="res://test/blocks/ramp.blend" id="3_qgx33"]
+[ext_resource type="Texture2D" uid="uid://cpq0shoavpqs0" path="res://test/textures/ckeckerboard_dark.png" id="4_d6of8"]
 [ext_resource type="PackedScene" uid="uid://ddwov7xcyqqhf" path="res://test/blocks/bump_circle.blend" id="4_n506h"]
+[ext_resource type="PackedScene" uid="uid://e0yu6mev8yom" path="res://game/tractor/car.tscn" id="7_d6of8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vjs6"]
+albedo_texture = ExtResource("2_ucvj1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpap0"]
+albedo_texture = ExtResource("4_d6of8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4b2e1"]
+albedo_texture = ExtResource("4_d6of8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0jqs"]
+albedo_texture = ExtResource("4_d6of8")
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_n506h"]
 
@@ -20,14 +35,26 @@ sky = SubResource("Sky_t35cj")
 
 [node name="ground" parent="Environment" instance=ExtResource("2_gq76n")]
 
+[node name="ground" parent="Environment/ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1vjs6")
+
 [node name="ramp2" parent="Environment" instance=ExtResource("3_qgx33")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -6)
+
+[node name="ramp" parent="Environment/ramp2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cpap0")
 
 [node name="ramp" parent="Environment" instance=ExtResource("3_qgx33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6)
 
+[node name="ramp" parent="Environment/ramp" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4b2e1")
+
 [node name="bump_square" parent="Environment" instance=ExtResource("1_y0lba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="bump_square" parent="Environment/bump_square" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i0jqs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.939693, -0.241845, 0.241845, 0, 0.707107, 0.707107, -0.34202, -0.664463, 0.664463, 0, 10, 0)
@@ -50,7 +77,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.3134
 [node name="bump_circle4" parent="." instance=ExtResource("4_n506h")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.31343, 1.70869e-07, 0.492075)
 
+[node name="Car" parent="." instance=ExtResource("7_d6of8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0373, 0.5, 5.49812)
+
+[node name="Camera3D" type="Camera3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 0.909287, 0.41617, 0, -0.41617, 0.909287, 0, 2.27421, 3.35028)
+
 [editable path="Environment/ground"]
 [editable path="Environment/ramp2"]
+[editable path="Environment/ramp"]
 [editable path="Environment/bump_square"]
 [editable path="bump_circle"]
