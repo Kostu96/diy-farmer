@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://der4nxs2byk6h"]
+[gd_scene load_steps=14 format=3 uid="uid://der4nxs2byk6h"]
 
 [ext_resource type="Texture2D" uid="uid://cpq0shoavpqs0" path="res://test/textures/ckeckerboard_dark.png" id="1_2obws"]
-[ext_resource type="Script" uid="uid://da62k4rcmruwx" path="res://game/tractor/tractor.gd" id="1_nl5id"]
 [ext_resource type="Texture2D" uid="uid://0ci18jymg8nc" path="res://test/textures/checkerboard_orange.png" id="2_nl5id"]
 [ext_resource type="Script" uid="uid://b8na5vfwekhy5" path="res://game/tractor/wheel.gd" id="3_syphm"]
 
@@ -47,7 +46,7 @@ bottom_radius = 0.6
 height = 0.2
 
 [node name="Tractor" type="RigidBody3D"]
-script = ExtResource("1_nl5id")
+mass = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629765, 0)
@@ -56,6 +55,15 @@ shape = SubResource("BoxShape3D_y36n6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629765, 0)
 mesh = SubResource("BoxMesh_j8tme")
+
+[node name="FrontAxleJoint" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250217, 0.799817)
+node_a = NodePath("..")
+node_b = NodePath("../FrontAxle")
+exclude_nodes_from_collision = false
+angular_limit/enable = true
+angular_limit/upper = 0.349066
+angular_limit/lower = -0.349066
 
 [node name="FrontAxle" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249765, 0.8)
@@ -77,6 +85,7 @@ wheel_radius = 0.25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FrontAxle/WheelFR"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_l8g03")
 
 [node name="WheelFL" type="RayCast3D" parent="FrontAxle"]
@@ -87,6 +96,7 @@ wheel_radius = 0.25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FrontAxle/WheelFL"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_l8g03")
 
 [node name="WheelRR" type="RayCast3D" parent="."]
@@ -97,6 +107,7 @@ wheel_radius = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRR"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_3vho3")
 
 [node name="WheelRL" type="RayCast3D" parent="."]
@@ -107,4 +118,5 @@ wheel_radius = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRL"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_3vho3")

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dlol58oyqui7m" path="res://game/player/player.tscn" id="1_hd13d"]
 [ext_resource type="ArrayMesh" uid="uid://bclcf1dsjwee1" path="res://game/environment/Terrain.obj" id="4_4fuuu"]
 [ext_resource type="Material" uid="uid://d2tikx2c16i42" path="res://game/environment/terrain_meterial.tres" id="4_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://e0yu6mev8yom" path="res://game/tractor/car.tscn" id="5_dxrkv"]
 [ext_resource type="Script" uid="uid://b7x8vdmshq51d" path="res://game/debug_ui.gd" id="6_dakft"]
-[ext_resource type="PackedScene" uid="uid://der4nxs2byk6h" path="res://game/tractor/tractor.tscn" id="7_u5opy"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uftqq"]
 
@@ -52,9 +52,6 @@ shape = SubResource("ConcavePolygonShape3D_dxrkv")
 [node name="Player" parent="." instance=ExtResource("1_hd13d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
-[node name="Tractor" parent="." instance=ExtResource("7_u5opy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, 0)
-
 [node name="DebugUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 3
@@ -101,3 +98,6 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "FPS: 000"
 horizontal_alignment = 2
+
+[node name="Car" parent="." instance=ExtResource("5_dxrkv")]
+transform = Transform3D(0.994522, 0, -0.104528, 0, 1, 0, 0.104528, 0, 0.994522, 0, 2.5, -8)
