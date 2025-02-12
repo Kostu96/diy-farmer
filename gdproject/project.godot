@@ -82,7 +82,11 @@ Clutch={
 
 [physics]
 
+common/physics_ticks_per_second=90
+common/max_physics_steps_per_frame=12
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/velocity_steps=12
+jolt_physics_3d/simulation/position_steps=3
 
 [rendering]
 

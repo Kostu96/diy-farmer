@@ -1,12 +1,12 @@
 extends RayCast3D
 
-@export var wheel_radius : float = 0.25
+@export var wheel_radius : float = 0.005
 @export var max_spring_length : float = 0.5
-@export var spring_strength : float = 2500.0
-@export var damper_strength : float = 1800.0
+@export var spring_strength : float = 1800.0
+@export var damper_strength : float = 1000.0
 
 @onready var vehicle_body : RigidBody3D = get_parent()
-@onready var wheel_mesh : MeshInstance3D = $MeshInstance3D
+@onready var wheel_mesh : Node3D = get_child(0)
 @onready var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var engine_torque : float = 100

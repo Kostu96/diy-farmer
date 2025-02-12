@@ -1,65 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://e0yu6mev8yom"]
+[gd_scene load_steps=6 format=3 uid="uid://e0yu6mev8yom"]
 
+[ext_resource type="PackedScene" uid="uid://bu4b7u57oeqwg" path="res://game/tractor/F100/F100_1967.glb" id="1_e3hf7"]
 [ext_resource type="Script" uid="uid://b8na5vfwekhy5" path="res://game/tractor/wheel.gd" id="2_ity5t"]
-[ext_resource type="Material" uid="uid://ilihwcvx687f" path="res://game/tractor/wheel_material.tres" id="3_e3hf7"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ity5t"]
-size = Vector3(2, 0.4, 3.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ity5t"]
-transparency = 1
-albedo_color = Color(0.784314, 0.784314, 0.784314, 0.588235)
+[ext_resource type="PackedScene" uid="uid://eliybq2bdcyu" path="res://game/tractor/F100/F100_1967_WheelFront.glb" id="3_e3hf7"]
+[ext_resource type="PackedScene" uid="uid://b8cy5v4u5r3gv" path="res://game/tractor/F100/F100_1967_WheelRear.glb" id="4_o6ssj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kry7n"]
-size = Vector3(2, 0.4, 3.2)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ity5t"]
-top_radius = 0.25
-bottom_radius = 0.25
-height = 0.1
+size = Vector3(2, 0.563477, 3.16572)
 
 [node name="Car" type="RigidBody3D"]
 mass = 1000.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_ity5t")
-surface_material_override/0 = SubResource("StandardMaterial3D_ity5t")
+[node name="F100_1967_Base" parent="." instance=ExtResource("1_e3hf7")]
+transform = Transform3D(-6.55671e-10, 0, 0.015, 0, 0.015, 0, -0.015, 0, -6.55671e-10, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.492334, -0.000830173)
 shape = SubResource("BoxShape3D_kry7n")
 
 [node name="WheelFL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, 1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.834278, 0.393585, 1.58834)
 script = ExtResource("2_ity5t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFL"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ity5t")
-surface_material_override/0 = ExtResource("3_e3hf7")
+[node name="F100_1967_WheelFront" parent="WheelFL" instance=ExtResource("3_e3hf7")]
+transform = Transform3D(-6.55671e-10, 0, 0.015, 0, 0.015, 0, -0.015, 0, -6.55671e-10, -0.79502, -0.351769, -1.63545)
 
 [node name="WheelFR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, 1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.834, 0.394, 1.588)
 script = ExtResource("2_ity5t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFR"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ity5t")
-surface_material_override/0 = ExtResource("3_e3hf7")
+[node name="F100_1967_WheelFront" parent="WheelFR" instance=ExtResource("3_e3hf7")]
+transform = Transform3D(-6.55671e-10, 0, -0.015, 0, 0.015, 0, 0.015, 0, -6.55671e-10, 0.795, -0.352, 1.635)
 
 [node name="WheelRL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.821334, 0.393056, -1.2419)
 script = ExtResource("2_ity5t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRL"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ity5t")
-surface_material_override/0 = ExtResource("3_e3hf7")
+[node name="F100_1967_WheelRear" parent="WheelRL" instance=ExtResource("4_o6ssj")]
+transform = Transform3D(-6.55671e-10, 0, 0.015, 0, 0.015, 0, -0.015, 0, -6.55671e-10, -0.818856, -0.354707, 1.23671)
 
 [node name="WheelRR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.821, 0.393, -1.242)
 script = ExtResource("2_ity5t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRR"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ity5t")
-surface_material_override/0 = ExtResource("3_e3hf7")
+[node name="F100_1967_WheelRear" parent="WheelRR" instance=ExtResource("4_o6ssj")]
+transform = Transform3D(-6.55671e-10, 0, -0.015, 0, 0.015, 0, 0.015, 0, -6.55671e-10, 0.819, -0.355, -1.237)

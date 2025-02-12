@@ -42,7 +42,6 @@ environment = SubResource("Environment_6bouu")
 [node name="Ground" type="StaticBody3D" parent="Environment"]
 
 [node name="Terrain" type="MeshInstance3D" parent="Environment/Ground"]
-visible = false
 material_override = ExtResource("4_dxrkv")
 mesh = ExtResource("4_4fuuu")
 skeleton = NodePath("../../..")
